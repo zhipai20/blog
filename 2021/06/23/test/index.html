@@ -3,7 +3,7 @@
 
 
 <head>
-    <meta charset="utf-8">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     <meta name="keywords" content="test, 彘排20">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,13 +29,14 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 
 
 <body>
-    <header class="navbar-fixed">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
@@ -486,9 +487,9 @@
 <p><strong>Q2 指针的作用</strong></p>
 <blockquote>
 <p>指针用来保存变量的地址</p>
-<pre><code class="go">var x = 5
-var p *int = &amp;x
-</code></pre>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">var</span> x <span class="token operator">=</span> <span class="token number">5</span>
+<span class="token keyword">var</span> p <span class="token operator">*</span><span class="token builtin">int</span> <span class="token operator">=</span> <span class="token operator">&amp;</span>x
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <ul>
 <li>*运算符，也称解引运算符，用于访问地址中的值</li>
 <li>&amp;运算符，也称地址运算符，用于返回变量的地址</li>
@@ -497,19 +498,19 @@ var p *int = &amp;x
 <p><strong>Q3 Go允许多个返回值吗？</strong></p>
 <blockquote>
 <p>允许</p>
-<pre><code class="go">func swap(x, y string) (string, string) &#123;
-   return y, x
-&#125;
-</code></pre>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">swap</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+   <span class="token keyword">return</span> y<span class="token punctuation">,</span> x
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </blockquote>
 <p><strong>Q4 Go 有异常类型吗</strong></p>
 <blockquote>
 <p>Go没有异常类型，只有错误类型（Error），通常用返回值来表示异常状态</p>
-<pre><code class="go">f,err = os.Open(&quot;text.txt&quot;)
-if err != nil &#123;
-    log.Fatal(err)
-&#125;
-</code></pre>
+<pre class="line-numbers language-go"><code class="language-go">f<span class="token punctuation">,</span>err <span class="token operator">=</span> os<span class="token punctuation">.</span><span class="token function">Open</span><span class="token punctuation">(</span><span class="token string">"text.txt"</span><span class="token punctuation">)</span>
+<span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    log<span class="token punctuation">.</span><span class="token function">Fatal</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 </blockquote>
 <p><strong>Q5 什么是协程（Goroutine）</strong></p>
 <blockquote>
@@ -525,10 +526,10 @@ if err != nil &#123;
 </blockquote>
 <p><strong>Q8 如何判断 map 中是否包含某个 key ？</strong></p>
 <blockquote>
-<pre><code class="go">if val, ok := dict[&quot;foo&quot;]; ok &#123;
-    //do something here
-&#125;
-</code></pre>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">if</span> val<span class="token punctuation">,</span> ok <span class="token operator">:=</span> dict<span class="token punctuation">[</span><span class="token string">"foo"</span><span class="token punctuation">]</span><span class="token punctuation">;</span> ok <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//do something here</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><code>dict[&quot;foo&quot;]</code> 有 2 个返回值，val 和 ok，如果 ok 等于 <code>true</code>，则说明 dict 包含 key <code>&quot;foo&quot;</code>，val 将被赋予 <code>&quot;foo&quot;</code> 对应的值。</p>
 </blockquote>
 <p><strong>Q9 Go 支持默认参数或可选参数吗？</strong></p>
@@ -541,68 +542,68 @@ if err != nil &#123;
 <li>多个 defer 语句，遵从后进先出(Last In First Out，LIFO)的原则，最后声明的 defer 语句，最先得到执行。</li>
 <li>defer 在 return 语句之后执行，但在函数退出之前，defer 可以修改返回值。</li>
 </ul>
-<pre><code class="go">func test() int &#123;
-    i := 0
-    defer func() &#123;
-        fmt.Println(&quot;defer1&quot;)
-    &#125;()
-    defer func() &#123;
-        i += 1
-        fmt.Println(&quot;defer2&quot;)
-    &#125;()
-    return i
-&#125;
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    i <span class="token operator">:=</span> <span class="token number">0</span>
+    <span class="token keyword">defer</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"defer1"</span><span class="token punctuation">)</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">defer</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        i <span class="token operator">+=</span> <span class="token number">1</span>
+        fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"defer2"</span><span class="token punctuation">)</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> i
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-func main() &#123;
-    fmt.Println(&quot;return&quot;, test())
-&#125;
-</code></pre>
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"return"</span><span class="token punctuation">,</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>可以看到 defer 的执行顺序：后进先出。但是返回值并没有被修改，这是由于 Go 的返回机制决定的，执行 return 语句后，Go 会创建一个临时变量保存返回值，因此，defer 语句修改了局部变量 i，并没有修改返回值。</p>
 </blockquote>
 <p><strong>Q11 如何交换 2 个变量的值？</strong></p>
 <blockquote>
-<pre><code class="go">a,b := &quot;a&quot;,&quot;b&quot;
-a,b = b,a
-</code></pre>
+<pre class="line-numbers language-go"><code class="language-go">a<span class="token punctuation">,</span>b <span class="token operator">:=</span> <span class="token string">"a"</span><span class="token punctuation">,</span><span class="token string">"b"</span>
+a<span class="token punctuation">,</span>b <span class="token operator">=</span> b<span class="token punctuation">,</span>a
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </blockquote>
 <p><strong>Q12 Go 语言 tag 的用处？</strong></p>
 <blockquote>
 <p>tag 可以理解为 struct 字段的注解，可以用来定义字段的一个或多个属性。框架/工具可以通过反射获取到某个字段定义的属性，采取相应的处理方式。tag 丰富了代码的语义，增强了灵活性。</p>
-<pre><code class="go">type Stu struct &#123;
-    Name string `json:&quot;stu_name&quot;`
-    ID   string `json:&quot;stu_id&quot;`
-    Age  int    `json:&quot;-&quot;`
-&#125;
-</code></pre>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">type</span> Stu <span class="token keyword">struct</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    Name <span class="token builtin">string</span> <span class="token string">`json:"stu_name"`</span>
+    ID   <span class="token builtin">string</span> <span class="token string">`json:"stu_id"`</span>
+    Age  <span class="token builtin">int</span>    <span class="token string">`json:"-"`</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>tag 定义了结构体字段与 json 字段的转换关系，Name -&gt; <code>stu_name</code>, ID -&gt; <code>stu_id</code>，忽略 Age 字段。很方便地实现了 Go 结构体与不同规范的 json 文本之间的转换</p>
 </blockquote>
 <p><strong>Q13字符串打印时，<code>%v</code> 和 <code>%+v</code> 的区别</strong></p>
 <blockquote>
 <p><code>%v</code> 和 <code>%+v</code> 都可以用来打印 struct 的值，区别在于 <code>%v</code> 仅打印各个字段的值，<code>%+v</code> 还会打印各个字段的名称。</p>
-<pre><code class="go">type Stu struct &#123;
-    Name string
-&#125;
-func main() &#123;
-    fmt.Printf(&quot;%v\n&quot;, Stu&#123;&quot;Tom&quot;&#125;) // &#123;Tom&#125;
-    fmt.Printf(&quot;%+v\n&quot;, Stu&#123;&quot;Tom&quot;&#125;) // &#123;Name:Tom&#125;
-&#125;
-</code></pre>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">type</span> Stu <span class="token keyword">struct</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    Name <span class="token builtin">string</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"%v\n"</span><span class="token punctuation">,</span> Stu<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token string">"Tom"</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// &amp;#123;Tom&amp;#125;</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"%+v\n"</span><span class="token punctuation">,</span> Stu<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token string">"Tom"</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// &amp;#123;Name:Tom&amp;#125;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </blockquote>
 <p><strong>Q14 Go 语言中如何表示枚举值(enums)</strong></p>
 <blockquote>
-<pre><code class="go">type StuType int32
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">type</span> StuType <span class="token builtin">int32</span>
 
-const (
-    Type1 StuType = iota
+<span class="token keyword">const</span> <span class="token punctuation">(</span>
+    Type1 StuType <span class="token operator">=</span> <span class="token boolean">iota</span>
     Type2
     Type3
     Type4
-)
+<span class="token punctuation">)</span>
 
-func main() &#123;
-    fmt.Println(Type1, Type2, Type3, Type4) // 0, 1, 2, 3
-&#125;
-</code></pre>
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>Type1<span class="token punctuation">,</span> Type2<span class="token punctuation">,</span> Type3<span class="token punctuation">,</span> Type4<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 0, 1, 2, 3</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>通常使用常量（const）来表示枚举</p>
 </blockquote>
 <p><strong>Q15 空 struct{} 的用途</strong></p>
@@ -628,16 +629,16 @@ func main() &#123;
 <p><strong>Q2 Go 语言的局部变量分配在栈上还是堆上</strong></p>
 <blockquote>
 <p>由编译器决定。Go 语言编译器会自动决定把一个变量放在栈还是放在堆，编译器会做逃逸分析(escape analysis)，当发现变量的<strong>作用域没有超出函数范围</strong>，就可以在栈上，反之则必须分配在堆上。</p>
-<pre><code class="go">func foo() *int &#123;
-    v := 11
-    return &amp;v
-&#125;
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span><span class="token builtin">int</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    v <span class="token operator">:=</span> <span class="token number">11</span>
+    <span class="token keyword">return</span> <span class="token operator">&amp;</span>v
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-func main() &#123;
-    m := foo()
-    println(*m) // 11
-&#125;
-</code></pre>
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    m <span class="token operator">:=</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token function">println</span><span class="token punctuation">(</span><span class="token operator">*</span>m<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 11</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><code>foo()</code> 函数中，如果 v 分配在栈上，foo 函数返回时，<code>&amp;v</code> 就不存在了，但是这段函数是能够正常运行的。Go 编译器发现 v 的引用脱离了 foo 的作用域，会将其分配在堆上。因此，main 函数中仍能够正常访问该值</p>
 </blockquote>
 <p><strong>Q3 2 个 interface 可以比较吗</strong></p>
@@ -645,33 +646,33 @@ func main() &#123;
 <p>Go 语言中，interface 的内部实现包含了 2 个字段，类型 <code>T</code> 和 值 <code>V</code>，interface 可以使用 <code>==</code> 或 <code>!=</code> 比较。2 个 interface 相等有以下 2 种情况</p>
 <p>1、两个 interface 均等于 nil（此时 V 和 T 都处于 unset 状态）</p>
 <p>2、类型 V 相同，且对应的值 V 相等。</p>
-<pre><code class="go">type Stu struct &#123;
-    Name string
-&#125;
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">type</span> Stu <span class="token keyword">struct</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    Name <span class="token builtin">string</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-type StuInt interface&#123;&#125;
+<span class="token keyword">type</span> StuInt <span class="token keyword">interface</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-func main() &#123;
-    var stu1, stu2 StuInt = &amp;Stu&#123;&quot;Tom&quot;&#125;, &amp;Stu&#123;&quot;Tom&quot;&#125;
-    var stu3, stu4 StuInt = Stu&#123;&quot;Tom&quot;&#125;, Stu&#123;&quot;Tom&quot;&#125;
-    fmt.Println(stu1 == stu2) // false
-    fmt.Println(stu3 == stu4) // true
-&#125;
-</code></pre>
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> stu1<span class="token punctuation">,</span> stu2 StuInt <span class="token operator">=</span> <span class="token operator">&amp;</span>Stu<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token string">"Tom"</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>Stu<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token string">"Tom"</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> stu3<span class="token punctuation">,</span> stu4 StuInt <span class="token operator">=</span> Stu<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token string">"Tom"</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span> Stu<span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token string">"Tom"</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>stu1 <span class="token operator">==</span> stu2<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// false</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>stu3 <span class="token operator">==</span> stu4<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// true</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><code>stu1</code> 和 <code>stu2</code> 对应的类型是 <code>*Stu</code>，值是 Stu 结构体的地址，两个地址不同，因此结果为 false。<br><code>stu3</code> 和 <code>stu3</code> 对应的类型是 <code>Stu</code>，值是 Stu 结构体，且各字段相等，因此结果为 true。</p>
 </blockquote>
 <p><strong>Q4 两个 nil 可能不相等吗？</strong></p>
 <blockquote>
 <p>可能</p>
 <p>接口(interface) 是对非接口值(例如指针，struct等)的封装，内部实现包含 2 个字段，类型 <code>T</code> 和 值 <code>V</code>。一个接口等于 nil，当且仅当 T 和 V 处于 unset 状态（T=nil，V is unset）。</p>
-<pre><code class="go">func main() &#123;
-    var p *int = nil
-    var i interface&#123;&#125; = p
-    fmt.Println(i == p) // true
-    fmt.Println(p == nil) // true
-    fmt.Println(i == nil) // false
-&#125;
-</code></pre>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> p <span class="token operator">*</span><span class="token builtin">int</span> <span class="token operator">=</span> <span class="token boolean">nil</span>
+    <span class="token keyword">var</span> i <span class="token keyword">interface</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token operator">=</span> p
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>i <span class="token operator">==</span> p<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// true</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>p <span class="token operator">==</span> <span class="token boolean">nil</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// true</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>i <span class="token operator">==</span> <span class="token boolean">nil</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// false</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>这个例子中，将一个 nil 非接口值 p 赋值给接口 i，此时，i 的内部字段为<code>(T=*int, V=nil)</code>，i 与 p 作比较时，将 p 转换为接口后再比较，因此 <code>i == p</code>，p 与 nil 比较，直接比较值，所以 <code>p == nil</code>。</p>
 <p>但是当 i 与 nil 比较时，会将 nil 转换为接口 <code>(T=nil, V=nil)</code>，与i <code>(T=*int, V=nil)</code> 不相等，因此 <code>i != nil</code>。因此 V 为 nil ，但 T 不为 nil 的接口不等于 nil</p>
 </blockquote>
@@ -726,51 +727,51 @@ func main() &#123;
 <li>包级别的函数等。</li>
 </ul>
 <p>举一个例子，定义类型 T，并为类型 <code>*T</code> 声明一个方法 <code>hello()</code>，变量 t1 可以调用该方法，但是常量 t2 调用该方法时，会产生编译错误。</p>
-<pre><code class="go">type T string
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">type</span> T <span class="token builtin">string</span>
 
-func (t *T) hello() &#123;
-    fmt.Println(&quot;hello&quot;)
-&#125;
+<span class="token keyword">func</span> <span class="token punctuation">(</span>t <span class="token operator">*</span>T<span class="token punctuation">)</span> <span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-func main() &#123;
-    var t1 T = &quot;ABC&quot;
-    t1.hello() // hello
-    const t2 T = &quot;ABC&quot;
-    t2.hello() // error: cannot call pointer method on t
-&#125;
-</code></pre>
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> t1 T <span class="token operator">=</span> <span class="token string">"ABC"</span>
+    t1<span class="token punctuation">.</span><span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// hello</span>
+    <span class="token keyword">const</span> t2 T <span class="token operator">=</span> <span class="token string">"ABC"</span>
+    t2<span class="token punctuation">.</span><span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// error: cannot call pointer method on t</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </blockquote>
 <hr>
 <h4 id="并发编程"><a href="#并发编程" class="headerlink" title="并发编程"></a>并发编程</h4><p><strong>Q1 无缓冲的 channel 和 有缓冲的 channel 的区别</strong></p>
 <blockquote>
 <p>对于无缓冲的 channel，发送方将阻塞该信道，直到接收方从该信道接收到数据为止，而接收方也将阻塞该信道，直到发送方将数据发送到该信道中为止。</p>
 <p>对于有缓存的 channel，发送方在没有空插槽（缓冲区使用完）的情况下阻塞，而接收方在信道为空的情况下阻塞。</p>
-<pre><code class="go">func main() &#123;
-    st := time.Now()
-    ch := make(chan bool)
-    go func ()  &#123;
-        time.Sleep(time.Second * 2)
-        &lt;-ch
-    &#125;()
-    ch &lt;- true  // 无缓冲，发送方阻塞直到接收方接收到数据。
-    fmt.Printf(&quot;cost %.1f s\n&quot;, time.Now().Sub(st).Seconds())
-    time.Sleep(time.Second * 5)
-&#125;
-</code></pre>
-<pre><code class="go">func main() &#123;
-    st := time.Now()
-    ch := make(chan bool, 2)
-    go func ()  &#123;
-        time.Sleep(time.Second * 2)
-        &lt;-ch
-    &#125;()
-    ch &lt;- true
-    ch &lt;- true // 缓冲区为 2，发送方不阻塞，继续往下执行
-    fmt.Printf(&quot;cost %.1f s\n&quot;, time.Now().Sub(st).Seconds()) // cost 0.0 s
-    ch &lt;- true // 缓冲区使用完，发送方阻塞，2s 后接收方接收到数据，释放一个插槽，继续往下执行
-    fmt.Printf(&quot;cost %.1f s\n&quot;, time.Now().Sub(st).Seconds()) // cost 2.0 s
-    time.Sleep(time.Second * 5)
-</code></pre>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    st <span class="token operator">:=</span> time<span class="token punctuation">.</span><span class="token function">Now</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    ch <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token keyword">chan</span> <span class="token builtin">bool</span><span class="token punctuation">)</span>
+    <span class="token keyword">go</span> <span class="token keyword">func</span> <span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        time<span class="token punctuation">.</span><span class="token function">Sleep</span><span class="token punctuation">(</span>time<span class="token punctuation">.</span>Second <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">)</span>
+        <span class="token operator">&lt;-</span>ch
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    ch <span class="token operator">&lt;-</span> <span class="token boolean">true</span>  <span class="token comment" spellcheck="true">// 无缓冲，发送方阻塞直到接收方接收到数据。</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"cost %.1f s\n"</span><span class="token punctuation">,</span> time<span class="token punctuation">.</span><span class="token function">Now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Sub</span><span class="token punctuation">(</span>st<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Seconds</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    time<span class="token punctuation">.</span><span class="token function">Sleep</span><span class="token punctuation">(</span>time<span class="token punctuation">.</span>Second <span class="token operator">*</span> <span class="token number">5</span><span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    st <span class="token operator">:=</span> time<span class="token punctuation">.</span><span class="token function">Now</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    ch <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token keyword">chan</span> <span class="token builtin">bool</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+    <span class="token keyword">go</span> <span class="token keyword">func</span> <span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        time<span class="token punctuation">.</span><span class="token function">Sleep</span><span class="token punctuation">(</span>time<span class="token punctuation">.</span>Second <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">)</span>
+        <span class="token operator">&lt;-</span>ch
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    ch <span class="token operator">&lt;-</span> <span class="token boolean">true</span>
+    ch <span class="token operator">&lt;-</span> <span class="token boolean">true</span> <span class="token comment" spellcheck="true">// 缓冲区为 2，发送方不阻塞，继续往下执行</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"cost %.1f s\n"</span><span class="token punctuation">,</span> time<span class="token punctuation">.</span><span class="token function">Now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Sub</span><span class="token punctuation">(</span>st<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Seconds</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// cost 0.0 s</span>
+    ch <span class="token operator">&lt;-</span> <span class="token boolean">true</span> <span class="token comment" spellcheck="true">// 缓冲区使用完，发送方阻塞，2s 后接收方接收到数据，释放一个插槽，继续往下执行</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"cost %.1f s\n"</span><span class="token punctuation">,</span> time<span class="token punctuation">.</span><span class="token function">Now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Sub</span><span class="token punctuation">(</span>st<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Seconds</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// cost 2.0 s</span>
+    time<span class="token punctuation">.</span><span class="token function">Sleep</span><span class="token punctuation">(</span>time<span class="token punctuation">.</span>Second <span class="token operator">*</span> <span class="token number">5</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </blockquote>
 <p><strong>Q2 什么是协程泄露(Goroutine Leak)</strong></p>
 <blockquote>
@@ -780,21 +781,21 @@ func main() &#123;
 <p>每执行一次 query，则启动1000个协程向信道 ch 发送数字 0，但只接收了一次，导致 999 个协程被阻塞</p>
 </li>
 </ul>
-<pre><code class="go">func query() int &#123;
-    ch := make(chan int)
-    for i := 0; i &lt; 1000; i++ &#123;
-        go func() &#123; ch &lt;- 0 &#125;()
-    &#125;
-    return &lt;-ch
-&#125;
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">query</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    ch <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token keyword">chan</span> <span class="token builtin">int</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">1000</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">go</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> ch <span class="token operator">&lt;-</span> <span class="token number">0</span> <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token operator">&lt;-</span>ch
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-func main() &#123;
-    for i := 0; i &lt; 4; i++ &#123;
-        query()
-        fmt.Printf(&quot;goroutines: %d\n&quot;, runtime.NumGoroutine())
-    &#125;
-&#125;
-</code></pre>
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">4</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token function">query</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"goroutines: %d\n"</span><span class="token punctuation">,</span> runtime<span class="token punctuation">.</span><span class="token function">NumGoroutine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li><p>缺少发送器，导致接收阻塞</p>
 <p>启动 1000 个协程接收信道的信息，但信道并不会发送那么多次的信息，也会导致接收协程被阻塞，不能退出。</p>
@@ -806,136 +807,136 @@ func main() &#123;
 <p>为了避免网络等问题，采用了无限重试的方式，发送 HTTP 请求，直到获取到数据。那如果 HTTP 服务宕机，永远不可达，导致协程不能退出，发生泄漏。</p>
 </li>
 </ul>
-<pre><code class="go">func request(url string, wg sync.WaitGroup) &#123;
-    for &#123;
-        if _, err := http.Get(url); err == nil &#123;
-            // write to db
-            break
-        &#125;
-        time.Sleep(time.Second)
-    &#125;
-    wg.Done()
-&#125;
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">request</span><span class="token punctuation">(</span>url <span class="token builtin">string</span><span class="token punctuation">,</span> wg sync<span class="token punctuation">.</span>WaitGroup<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token boolean">_</span><span class="token punctuation">,</span> err <span class="token operator">:=</span> http<span class="token punctuation">.</span><span class="token function">Get</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">;</span> err <span class="token operator">==</span> <span class="token boolean">nil</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">// write to db</span>
+            <span class="token keyword">break</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        time<span class="token punctuation">.</span><span class="token function">Sleep</span><span class="token punctuation">(</span>time<span class="token punctuation">.</span>Second<span class="token punctuation">)</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    wg<span class="token punctuation">.</span><span class="token function">Done</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-func main() &#123;
-    var wg sync.WaitGroup
-    for i := 0; i &lt; 1000; i++ &#123;
-        wg.Add(1)
-        go request(fmt.Sprintf(&quot;exampe.com/%d&quot;, i), wg)
-    &#125;
-    wg.Wait()
-&#125;
-</code></pre>
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> wg sync<span class="token punctuation">.</span>WaitGroup
+    <span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">1000</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        wg<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token keyword">go</span> <span class="token function">request</span><span class="token punctuation">(</span>fmt<span class="token punctuation">.</span><span class="token function">Sprintf</span><span class="token punctuation">(</span><span class="token string">"exampe.com/%d"</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token punctuation">,</span> wg<span class="token punctuation">)</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    wg<span class="token punctuation">.</span><span class="token function">Wait</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </blockquote>
 <p><strong>Q3 Go 可以限制运行时操作系统线程的数量吗</strong></p>
 <blockquote>
 <p>可以使用环境变量 <code>GOMAXPROCS</code> 或 <code>runtime.GOMAXPROCS(num int)</code> 设置.</p>
-<pre><code class="go">runtime.GOMAXPROCS(1) // 限制同时执行Go代码的操作系统线程数为 1
-</code></pre>
+<pre class="line-numbers language-go"><code class="language-go">runtime<span class="token punctuation">.</span><span class="token function">GOMAXPROCS</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 限制同时执行Go代码的操作系统线程数为 1</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>从官方文档的解释可以看到，<code>GOMAXPROCS</code> 限制的是同时执行用户态 Go 代码的操作系统线程的数量，但是对于被系统调用阻塞的线程数量是没有限制的。<code>GOMAXPROCS</code> 的默认值等于 CPU 的逻辑核数，同一时间，一个核只能绑定一个线程，然后运行被调度的协程。因此对于 CPU 密集型的任务，若该值过大，例如设置为 CPU 逻辑核数的 2 倍，会增加线程切换的开销，降低性能。对于 I/O 密集型应用，适当地调大该值，可以提高 I/O 吞吐率。</p>
 </blockquote>
 <hr>
 <h4 id="代码输出"><a href="#代码输出" class="headerlink" title="代码输出"></a>代码输出</h4><p><strong>常量与变量</strong></p>
 <blockquote>
-<pre><code class="go">func main() &#123;
-    const (
-        a, b = &quot;golang&quot;, 100
-        d, e     //等价于 a, b = &quot;golang&quot;, 100
-        f bool = true
-        g        //等价于 f bool = true
-    )
-    fmt.Println(d, e, g)
-&#125;
-</code></pre>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> <span class="token punctuation">(</span>
+        a<span class="token punctuation">,</span> b <span class="token operator">=</span> <span class="token string">"golang"</span><span class="token punctuation">,</span> <span class="token number">100</span>
+        d<span class="token punctuation">,</span> e     <span class="token comment" spellcheck="true">//等价于 a, b = "golang", 100</span>
+        f <span class="token builtin">bool</span> <span class="token operator">=</span> <span class="token boolean">true</span>
+        g        <span class="token comment" spellcheck="true">//等价于 f bool = true</span>
+    <span class="token punctuation">)</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>d<span class="token punctuation">,</span> e<span class="token punctuation">,</span> g<span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>在同一个 const group 中，如果常量定义与前一行的定义一致，则可以省略类型和值。编译时，会按照前一行的定义自动补全。即等价于</p>
 </blockquote>
 <blockquote>
-<pre><code class="go">func main() &#123;
-    const N = 100
-    var x int = N
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> N <span class="token operator">=</span> <span class="token number">100</span>
+    <span class="token keyword">var</span> x <span class="token builtin">int</span> <span class="token operator">=</span> N
 
-    const M int32 = 100   
-    var y int = M    //cannot use M (type int32) as type int in assignment
-    fmt.Println(x, y)
-&#125;
-</code></pre>
+    <span class="token keyword">const</span> M <span class="token builtin">int32</span> <span class="token operator">=</span> <span class="token number">100</span>   
+    <span class="token keyword">var</span> y <span class="token builtin">int</span> <span class="token operator">=</span> M    <span class="token comment" spellcheck="true">//cannot use M (type int32) as type int in assignment</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>Go 语言中，常量分为无类型常量和有类型常量两种，<code>const N = 100</code>，属于无类型常量，赋值给其他变量时，如果字面量能够转换为对应类型的变量，则赋值成功，例如，<code>var x int = N</code>。但是对于有类型的常量 <code>const M int32 = 100</code>，赋值给其他变量时，需要类型匹配才能成功，所以显示地类型转换：</p>
-<pre><code class="go">var y int = int(M)
-</code></pre>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">var</span> y <span class="token builtin">int</span> <span class="token operator">=</span> <span class="token function">int</span><span class="token punctuation">(</span>M<span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </blockquote>
 <blockquote>
-<pre><code class="go">func main() &#123;
-    var a int8 = -1
-    var b int8 = -128 / a
-    fmt.Println(b)
-&#125;
-</code></pre>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> a <span class="token builtin">int8</span> <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span>
+    <span class="token keyword">var</span> b <span class="token builtin">int8</span> <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">128</span> <span class="token operator">/</span> a
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>int8 能表示的数字的范围是 [-2^7, 2^7-1]，即 [-128, 127]。-128 是无类型常量，转换为 int8，再除以变量 -1，结果为 128，常量除以变量，结果是一个变量。变量转换时允许溢出，符号位变为1，转为补码后恰好等于 -128。</p>
 </blockquote>
 <blockquote>
-<pre><code class="go">func main() &#123;
-    const a int8 = -1
-    var b int8 = -128 / a
-    fmt.Println(b)
-&#125;
-</code></pre>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> a <span class="token builtin">int8</span> <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span>
+    <span class="token keyword">var</span> b <span class="token builtin">int8</span> <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">128</span> <span class="token operator">/</span> a
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>编译失败：constant 128 overflows int8</p>
 <p>-128 和 a 都是常量，在编译时求值，-128 / a = 128，两个常量相除，结果也是一个常量，常量类型转换时不允许溢出，因而编译失败。</p>
 </blockquote>
 <p><strong>作用域</strong></p>
 <blockquote>
-<pre><code class="go">func main() &#123;
-    var err error
-    if err == nil &#123;
-        err := fmt.Errorf(&quot;err&quot;)
-        fmt.Println(1, err)
-    &#125;
-    if err != nil &#123;
-        fmt.Println(2, err)
-    &#125;
-&#125;
-</code></pre>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> err <span class="token builtin">error</span>
+    <span class="token keyword">if</span> err <span class="token operator">==</span> <span class="token boolean">nil</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        err <span class="token operator">:=</span> fmt<span class="token punctuation">.</span><span class="token function">Errorf</span><span class="token punctuation">(</span><span class="token string">"err"</span><span class="token punctuation">)</span>
+        fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> err<span class="token punctuation">)</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> err<span class="token punctuation">)</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><code>:=</code> 表示声明并赋值，<code>=</code> 表示仅赋值。</p>
 <p>变量的作用域是大括号，因此在第一个 if 语句 <code>if err == nil</code> 内部重新声明且赋值了与外部变量同名的局部变量 err。对该局部变量的赋值不会影响到外部的 err。因此第二个 if 语句 <code>if err != nil</code> 不成立。所以只打印了 <code>1 err</code></p>
 </blockquote>
 <p><strong>defer 延迟调用</strong></p>
 <blockquote>
-<pre><code class="go">type T struct&#123;&#125;
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">type</span> T <span class="token keyword">struct</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-func (t T) f(n int) T &#123;
-    fmt.Print(n)
-    return t
-&#125;
+<span class="token keyword">func</span> <span class="token punctuation">(</span>t T<span class="token punctuation">)</span> <span class="token function">f</span><span class="token punctuation">(</span>n <span class="token builtin">int</span><span class="token punctuation">)</span> T <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Print</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> t
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-func main() &#123;
-    var t T
-    defer t.f(1).f(2)
-    fmt.Print(3)
-&#125;
-</code></pre>
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> t T
+    <span class="token keyword">defer</span> t<span class="token punctuation">.</span><span class="token function">f</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">f</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Print</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>defer 延迟调用时，需要保存函数指针和参数，因此<strong>链式调用的情况下</strong>，除了最后一个函数/方法外的函数/方法都会在调用时直接执行。也就是说 <code>t.f(1)</code> 直接执行，然后执行 <code>fmt.Print(3)</code>，最后函数返回时再执行 <code>.f(2)</code>，因此输出是 132。</p>
 </blockquote>
 <blockquote>
-<pre><code class="go">func f(n int) &#123;
-    defer fmt.Println(n)
-    n += 100
-&#125;
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">f</span><span class="token punctuation">(</span>n <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">defer</span> fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span>
+    n <span class="token operator">+=</span> <span class="token number">100</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
-func main() &#123;
-    f(1)
-&#125;
-</code></pre>
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token function">f</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>打印 1 而不是 101。defer 语句执行时，会将需要延迟调用的函数和参数保存起来，也就是说，执行到 defer 时，参数 n(此时等于1) 已经被保存了。因此后面对 n 的改动并不会影响延迟函数调用的结果</p>
 </blockquote>
 <blockquote>
-<pre><code class="go">func main() &#123;
-    n := 1
-    defer func() &#123;
-        fmt.Println(n)
-    &#125;()
-    n += 100
-&#125;
-</code></pre>
+<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    n <span class="token operator">:=</span> <span class="token number">1</span>
+    <span class="token keyword">defer</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    n <span class="token operator">+=</span> <span class="token number">100</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>匿名函数没有通过传参的方式将 n 传入，因此匿名函数内的 n 和函数外部的 n 是同一个，延迟执行时，已经被改变为 101。</p>
 </blockquote>
 
@@ -1671,7 +1672,7 @@ $(function () {
     
 
     
-    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    <script src="/libs/instantpage/instantpage.js" type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
 </body>
